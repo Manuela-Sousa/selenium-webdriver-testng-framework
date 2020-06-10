@@ -1,6 +1,8 @@
 package utils;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
@@ -10,6 +12,7 @@ import pageObjects.Loginpage;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -46,10 +49,13 @@ public class base {
     @BeforeTest
     public void open_page() {
         driver.get("https://courses.rahulshettyacademy.com/");
+        List<WebElement> elementList = driver.findElements(By.xpath("*"));
     }
 
     @AfterTest
     public void close_browser() {
         driver.quit();
     }
+
+
 }
