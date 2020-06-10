@@ -11,6 +11,7 @@ public class Loginpage {
     private By username_textfield = By.id("user_email");
     private By password_textfield = By.id("user_password");
     private By login_button = By.xpath("//*[@class='form-group text-center']//input");
+    private By logged_in_username_text = By.xpath("//*[@class='navbar-current-user']");
 
     public Loginpage(WebDriver driver) {
         this.driver = driver;
@@ -26,5 +27,9 @@ public class Loginpage {
 
     public WebElement getLogin_button() {
         return driver.findElement(login_button);
+    }
+
+    public WebElement getLogged_in_username_text() {
+        return driver.findElement(logged_in_username_text);
     }
 }

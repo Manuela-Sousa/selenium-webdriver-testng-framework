@@ -1,6 +1,6 @@
 package homepageTests;
 
-import org.testng.annotations.DataProvider;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.base;
 
@@ -19,17 +19,8 @@ public class login extends base {
         loginpage.getUsername_textfield().sendKeys(email);
         loginpage.getPassword_textfield().sendKeys(password);
         loginpage.getLogin_button().click();
+        String login_actual_text = loginpage.getLogged_in_username_text().getText();
+        Assert.assertEquals(login_actual_text, "Testes");
     }
 
-    @DataProvider
-    public Object[][] getData() {
-
-        //data for login credentials
-        //each object data corresponds to executions
-        Object[][] data = new Object[1][2];
-        data[0][0] = "qatestes98@gmail.com";
-        data[0][1] = "123testes";
-
-        return data;
-    }
 }
